@@ -29,7 +29,7 @@ public class UpdateMov extends AppCompatActivity implements ContractUpdateMovies
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_mov);
+        setContentView(R.layout.activity_update_movies);
 
         // Inicializamos los componentes de la interfaz
         initComponents();
