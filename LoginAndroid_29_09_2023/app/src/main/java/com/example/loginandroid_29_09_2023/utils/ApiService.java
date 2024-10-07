@@ -10,7 +10,9 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    public static final String URL ="http://192.168.43.180:8080/untitled_war_exploded/";
+    public static final String URL ="peliculas-android.cdzektqqammg.us-east-1.rds.amazonaws.com";
+    public static final String User = "postgres";
+    public static final String Password = "baloncesto";
       @Headers({
               "Accept: application/json",
               "Content-Type: application/json"
