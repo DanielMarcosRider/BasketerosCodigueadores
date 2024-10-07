@@ -24,15 +24,16 @@ public class UpdateMoviesModel implements ContractUpdateMovies.Model {
                 if (response.isSuccessful()) {
                     callback.onSuccess();
                 } else {
-                    callback.onError("Error en la actualización");
+                    callback.onError("Error en la actualización: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                callback.onError(t.getMessage());
+                callback.onError("Fallo en la conexión: " + t.getMessage());
             }
         });
     }
 }
+
 
