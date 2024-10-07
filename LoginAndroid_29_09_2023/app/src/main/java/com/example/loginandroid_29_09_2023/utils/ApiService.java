@@ -1,11 +1,15 @@
 package com.example.loginandroid_29_09_2023.utils;
 
+import com.example.loginandroid_29_09_2023.beans.Pelicula;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.lstMov.data.DataMovies;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -33,6 +37,9 @@ public interface ApiService {
 
         @GET("MyServlet")
         Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
+
+        @PUT("peliculas/{id}")
+        Call<Void> updatePelicula(@Path("id") int id, @Body Pelicula pelicula);
 
         /*
         @GET("MyServlet")
