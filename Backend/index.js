@@ -9,7 +9,7 @@ const {Pool} = require("pg");
 const myPool = new Pool({
   user: "postgres",
   host: "peliculas-android.cdzektqqammg.us-east-1.rds.amazonaws.com",
-  database: "peliculas-android",
+  database: "postgres",
   password: "baloncesto", // Considera usar variables de entorno para gestionar contraseñas
   port: 5432,
   ssl: {
@@ -33,3 +33,50 @@ app.get("/pelicula", async (req, res)=>{     // cualquier petición que venga de
   );
   res.json(rows);
 });
+
+
+//update peliculas imagen
+app.put("/pelicula", async (req, res) => {
+  try {
+      const {id, urlimagen } = req.body;
+      
+      // Verificar si se proporciona la nueva imagen
+      if (!urlimagen) {
+          return res.status(400).json({ error: "Nueva imagen no especificada" });
+      }
+      
+      // Realizar la actualización en la base de datos
+      await myPool.query(
+          "UPDATE pelicula SET urlimagen = $1 WHERE id = $2",
+          [urlimagen, id]
+      );
+
+      res.status(200).json({ message: "Imagen actualizada correctamente" });
+  } catch (error) {
+      console.error("Error al actualizar la imagen:", error);
+      res.status(500).json({ error: "Error interno del servidor" });
+  }
+});
+
+
+// login
+app.post('/login', async (req, res) => {
+  const { username, token } = req.body;
+
+  try {
+      const user = await myPool.query('SELECT * FROM usuario WHERE username = $1 AND token = $2', [username, token]);
+
+      if (user.rows.length === 1) {
+          // Usuario autenticado correctamente
+          res.status(200).json({ message: 'Inicio de sesión exitoso', user: user.rows[0] });
+      } else {
+          // Credenciales incorrectas
+          res.status(401).json({ error: 'Credenciales incorrectas' });
+      }
+
+  } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
