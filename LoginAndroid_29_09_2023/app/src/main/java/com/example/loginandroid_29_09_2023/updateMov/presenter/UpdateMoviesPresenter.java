@@ -1,6 +1,5 @@
 package com.example.loginandroid_29_09_2023.updateMov.presenter;
 
-
 import com.example.loginandroid_29_09_2023.beans.Pelicula;
 import com.example.loginandroid_29_09_2023.updateMov.ContractUpdateMovies;
 
