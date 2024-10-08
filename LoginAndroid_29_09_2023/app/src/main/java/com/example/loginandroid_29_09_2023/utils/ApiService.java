@@ -14,9 +14,8 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    public static final String URL ="peliculas-android.cdzektqqammg.us-east-1.rds.amazonaws.com";
-    public static final String User = "postgres";
-    public static final String Password = "baloncesto";
+    public static final String URL ="http://localhost:3000/pelicula";
+
       @Headers({
               "Accept: application/json",
               "Content-Type: application/json"
@@ -40,8 +39,8 @@ public interface ApiService {
         @GET("MyServlet")
         Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
 
-        @PUT("peliculas/{id}")
-        Call<Void> updatePelicula(@Path("id") int id, @Body Pelicula pelicula);
+        @PUT("pelicula")
+        Call<Void> updatePelicula(@Body Pelicula pelicula);
 
         /*
         @GET("MyServlet")

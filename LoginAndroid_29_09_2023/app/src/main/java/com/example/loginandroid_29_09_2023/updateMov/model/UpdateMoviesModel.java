@@ -18,7 +18,7 @@ public class UpdateMoviesModel implements ContractUpdateMovies.Model {
     @Override
     public void updatePelicula(Pelicula pelicula, UpdateCallback callback) {
         // Solo actualizamos la URL de la imagen
-        Call<Void> call = apiService.updatePelicula(pelicula.getId(), pelicula);  // Se asume que el servidor sabe qué campos modificar.
+        Call<Void> call = apiService.updatePelicula(pelicula);  // Se asume que el servidor sabe qué campos modificar.
 
         call.enqueue(new Callback<Void>() {
             @Override
