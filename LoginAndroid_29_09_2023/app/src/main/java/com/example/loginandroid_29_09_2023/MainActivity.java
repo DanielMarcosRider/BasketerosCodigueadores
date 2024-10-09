@@ -26,25 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        EditText editTextEmail = findViewById(R.id.edtEmail);
-        EditText editTextPassword = findViewById(R.id.edtPassword);
-        Button btnIniciarSesion = findViewById(R.id.btnLogin);
-
-
-        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userEmail = editTextEmail.getText().toString();
-                String userPassword = editTextPassword.getText().toString();
-                if (!userEmail.isEmpty() || !userPassword.isEmpty()) {
-                    Login();
-                } else {
-                    Toast.makeText(MainActivity.this, "Por favor, ingresa datos en los campos ", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
+        //Button login = findViewById(R.id.btnLogin);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -58,24 +40,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }, SPLASH_DISPLAY_LENGTH);
     }
-/*
-    private void Login() {
-        Call<Movie> call = RetrofitClient.getInstance().getMovieDetails(movieId, API_KEY, LANGUAGE);
-        call.enqueue(new Callback<Movie>() {
-            @Override
-            public void onResponse(Call<Movie> call, Response<Movie> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    Movie movie = response.body();
-                    Toast.makeText(MainActivity.this, "Detalles de " + movie.getTitle() + ": " + movie.getOverview(), Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "No se encontraron detalles para esta película", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Movie> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
 }

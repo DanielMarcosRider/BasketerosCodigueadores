@@ -17,7 +17,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginUserModel implements ContractLoginUser.Model {
-    private static final String IP_BASE = "169.254.225.61:8080";
+    //private static final String IP_BASE = "169.254.225.61:8080";
+    private static final String IP_BASE = "localhost:3000";
     private LoginUserPresenter presenter;
     public LoginUserModel(LoginUserPresenter presenter){
         this.presenter = presenter;
@@ -27,7 +28,7 @@ public class LoginUserModel implements ContractLoginUser.Model {
     @Override
     public void loginAPI(User user, final OnLoginUserListener onLoginUserListener) {
         // Crear una instancia de ApiService
-        ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/untitled/").
+        ApiService apiService = RetrofitCliente.getClient("http://" + IP_BASE + "/login").
                 create(ApiService.class);
 
 // Realizar la solicitud al Servlet
@@ -59,6 +60,14 @@ public class LoginUserModel implements ContractLoginUser.Model {
                     }
                 }
             }
+
+
+
+
+
+
+
+
 
             @Override
             public void onFailure(Call<MyData> call, Throwable t) {

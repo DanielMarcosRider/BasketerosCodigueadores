@@ -41,14 +41,17 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        String email = edtEmail.getText().toString();
+        String token = edtPassword.getText().toString();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
                 //sPeliculas.getDatosPeliculas();
                 User user = new User();
-                user.setUsername("akkarihdez@gmail.com");
-                user.setToken("1234");
+                user.setUsername(email);
+                user.setToken(token);
                 presenter.login(user);
             }
         });
