@@ -25,6 +25,7 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
 
     /* PATRÓN SINGLETON*/
     private static LoginUserM mainActivity = null;
+
     public static LoginUserM getInstance(){
         return mainActivity; //0x457845AF
     }
@@ -47,8 +48,8 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
                 //Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
                 //sPeliculas.getDatosPeliculas();
                 User user = new User();
-                user.setUsername("akkarihdez@gmail.com");
-                user.setToken("1234");
+                user.setUsername(String.valueOf(edtEmail));
+                user.setToken(String.valueOf(edtPassword));
                 presenter.login(user);
             }
         });
