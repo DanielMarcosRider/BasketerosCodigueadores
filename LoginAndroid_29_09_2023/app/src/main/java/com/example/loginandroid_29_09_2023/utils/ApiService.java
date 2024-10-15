@@ -7,7 +7,7 @@ import com.example.loginandroid_29_09_2023.lstMov.data.DataMovies;
 import java.util.ArrayList;
 
 import retrofit2.Call;
-   LoginUsers
+
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -19,16 +19,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
-  main
+
 import retrofit2.http.Query;
 
 public interface ApiService {
 
-  LoginUsers
-    public static final String URL ="http://192.168.43.180:8080/untitled_war_exploded/";
+    public static final String URL ="http://localhost:3000/";
 
-    public static final String URL ="http://localhost:3000/pelicula";
-  main
 
       @Headers({
               "Accept: application/json",
@@ -53,7 +50,7 @@ public interface ApiService {
         @GET("MyServlet")
         Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
 
- LoginUsers
+
 
 
         @PUT("pelicula")
