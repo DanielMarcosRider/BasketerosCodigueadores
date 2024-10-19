@@ -1,6 +1,7 @@
 package com.example.loginandroid_29_09_2023.utils;
 
 import com.example.loginandroid_29_09_2023.beans.Pelicula;
+import com.example.loginandroid_29_09_2023.login_user.loginParams.LoginParams;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.lstMov.data.DataMovies;
 
@@ -65,8 +66,10 @@ public interface ApiService {
         Call<MyData> getMyDataURL(@Path("id") String id);
 
         */
+        @POST("/login")
+        Call<MyData> login(@Body LoginParams loginParams);
 
-        @FormUrlEncoded
+
         @POST("/login")
         Call<MyData> login(@Field("username") String username, @Field("password") String password);
 

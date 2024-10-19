@@ -11,5 +11,9 @@
         android:id="@+id/action_opcion2"
         android:title="Opción 2"
         app:showAsAction="never"/>
-    <!-- Añadir más items según sea necesario -->
+
+    <item
+        android:id="@+id/pantallaLogin"
+        android:title="Botón"
+        app:showAsAction="always" />
 </menu>

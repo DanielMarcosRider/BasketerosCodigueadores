@@ -36,7 +36,7 @@ public class LstMovies extends AppCompatActivity
         lstMoviesPresenter = new LstMoviesPresenter(this);
         lstMoviesPresenter.lstMovies("");
 
-    }
+    }/*
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -53,7 +53,7 @@ public class LstMovies extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

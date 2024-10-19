@@ -36,20 +36,26 @@ public class LoginUserM extends AppCompatActivity implements ContractLoginUser.V
         setContentView(R.layout.activity_login_user_m);
         mainActivity = this;
         initComponents();
+        initPresenter();
 
     }
+
+
+
     private void initComponents(){
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+
+    }
+
+    private void initPresenter(){
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show();
-                //sPeliculas.getDatosPeliculas();
                 User user = new User();
-                user.setUsername(String.valueOf(edtEmail));
-                user.setToken(String.valueOf(edtPassword));
+                user.setUsername(edtEmail.getText().toString());
+                user.setToken(edtPassword.getText().toString());
                 presenter.login(user);
             }
         });

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.loginandroid_29_09_2023.beans.User;
 import com.example.loginandroid_29_09_2023.login_user.ContractLoginUser;
+import com.example.loginandroid_29_09_2023.login_user.loginParams.LoginParams;
 import com.example.loginandroid_29_09_2023.login_user.model.data.MyData;
 import com.example.loginandroid_29_09_2023.login_user.presenter.LoginUserPresenter;
 import com.example.loginandroid_29_09_2023.utils.ApiService;
@@ -23,15 +24,17 @@ public class LoginUserModel implements ContractLoginUser.Model {
         this.presenter = presenter;
     }
 
-
     @Override
     public void loginAPI(User user, final OnLoginUserListener onLoginUserListener) {
 
-        ApiService apiService = RetrofitCliente.getClient(  "http://" +IP_BASE + "login").
-                create(ApiService.class);
+        ApiService apiService = RetrofitCliente.getClient(  "http://" +IP_BASE + "login").create(ApiService.class);
 
+        LoginParams loginParams = new LoginParams(user.getUsername(),user.getToken() );
 
-        Call<MyData> call = apiService.login (user.getUsername(), user.getToken());
+        Call<MyData> call = apiService.login(loginParams);
+        System.out.printf(String.valueOf(loginParams));
+
+       // Call<MyData> call = apiService.login (user.getUsername(), user.getToken());
         call.enqueue(new Callback<MyData>() {
             @Override
             public void onResponse(Call<MyData> call, Response<MyData> response) {
